@@ -1,0 +1,23 @@
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+steps:
+# Upload ETL files
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['-m', 'cp', '-r', 'etl/*', 'gs://bucket-du-health-project/etl/']
+
+# Upload SQL files
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['-m', 'cp', '-r', 'sql/*', 'gs://bucket-du-health-project/sql/']
+
+# Upload requirements.txt
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', 'requirements.txt', 'gs://bucket-du-health-project/requirements/']
+
+# Upload README
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', 'ReadMe.md', 'gs://bucket-du-health-project/docs/']
+
+# Upload cloudbuild.yaml
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['cp', 'cloudbuild.yaml', 'gs://bucket-du-health-project/configs/']
