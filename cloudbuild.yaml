@@ -10,6 +10,11 @@ steps:
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['-m', 'cp', '-r', 'sql/*', 'gs://bucket-du-health-project/sql/']
 
+
+  # Upload Dag files
+- name: 'gcr.io/cloud-builders/gsutil'
+  args: ['-m', 'cp', '-r', 'dags/*', 'gs://us-east1-healthcare-compose-84859124-bucket/dags/']
+
 # Upload requirements.txt
 - name: 'gcr.io/cloud-builders/gsutil'
   args: ['cp', 'requirements.txt', 'gs://bucket-du-health-project/requirements/']
