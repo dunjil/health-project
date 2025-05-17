@@ -83,7 +83,7 @@ with models.DAG(
                 "project": GCP_PROJECT_ID,
                 "region": GCP_LOCATION,
             },
-            # py_requirements=['apache-beam[gcp]'],  # Add your dependencies here
+            py_requirements=["sqlalchemy", "psycopg2-binary"],  # Add your dependencies here
             py_interpreter='python3',
             py_system_site_packages=False,
         )
